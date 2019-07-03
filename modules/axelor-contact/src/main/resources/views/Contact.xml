@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <grid name="contact-grid" title="Contacts"
+    model="com.axelor.contact.db.Contact" > 
+    <field name="fname" />
+    <field name="phone.phoneno" />
+    <field name="phone.phoneType" />
+   <field name ="dateOfBirth"/>
+  </grid>
+
+
+<!--  <selection name="phone.type.selection"> -->
+<!--     <option value="Mobile">Mobile</option> -->
+<!--     <option value="Office">Office</option> -->
+<!--     <option value="Home">Home</option> -->
+<!--     <option value="Other">Other</option> -->
+<!--   </selection> -->
+
+
+
+  <form name="contact-form" title="Contact"
+    model="com.axelor.contact.db.Contact" > 
+    
+<panel colSpan="4">
+        <field name="image" showTitle="false" colSpan="12"/>
+      </panel>
+
+
+<!-- 	<panel title="Overview">  -->
+<!--       <field name="fullName" readonly="false"> --> 
+<!--         <editor>  -->
+         <panel colSpan="4">
+          <field name="fname" colSpan="5"/>
+       
+<!--         </editor> -->
+	
+<!--       </field> -->
+   <field name="dateOfBirth" colSpan="7"/>
+       </panel> 
+<panel-related field="phone">
+
+<field name="phoneType" width="100px"  />
+<field name="phoneno" readonly="false"/>
+
+
+ 
+</panel-related>
+      </form>
+      
+      
+      <cards name="contact-cards" title="Contacts" model="com.axelor.contact.db.Contact" orderBy="fname">
+    <field name="fname" />
+     <field name="phone.phoneno" />
+    <field name="phone.phoneType" />
+   <field name ="dateOfBirth"/>
+   <field name="hasImage" />
+    <template><![CDATA[
+      <div class="span4 card-image">
+        <img ng-if="hasImage" ng-src="{{$image(null, 'image')}}">
+        <img ng-if="!hasImage" src="/home/axelor/eclipse-workspace/contactbook-app/modules/axelor-contact/src/main/resources/image/Screenshot from 2019-06-28 18-41-32.png">
+      <strong>{{fname}}</strong>
+      </div>
+      <div class="span8">
+        <address>
+         <abbr ng-if="phone" title="Phone">
+          </address>
+      </div>
+    ]]></template>
+  </cards>
+  
+
+</object-views>
+      

@@ -1,0 +1,4 @@
+rootProject.name = 'contactbook-app'
+include "modules:axelor-contact"
+
+

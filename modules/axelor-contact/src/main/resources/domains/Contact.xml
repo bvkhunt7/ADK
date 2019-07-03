@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+	xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+	<module name="contact" package="com.axelor.contact.db" />
+
+	<entity name="Contact" cachable="true" >
+        <one-to-many name="phone" ref="Phone" required="true" mappedBy="contact" />
+		<string name="fname" namecolumn="true"/>
+                <date name="dateOfBirth"/>
+                <binary name="image" title="Photo" help="Max size 4MB." image="true"/>
+		
+	
+	</entity>
+</domain-models>
